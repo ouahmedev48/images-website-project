@@ -36,13 +36,19 @@ header {
 }
 
 nav a {
-    margin-left: 15px;
-    font-weight: 500;
-    color: #444;
+  color: #333;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: 
+    background-color 0.25s ease,
+    color 0.25s ease;
 }
 
 nav a:hover {
-    color: #ff7a18;
+  background-color: #ff8c00;
+  color: #fff;
 }
 
 /* =====================
@@ -127,7 +133,6 @@ nav a:hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-
 /* عند المرور */
 .gallery-item:hover {
     transform: translateY(-6px);
@@ -155,12 +160,12 @@ nav a:hover {
     margin: 12px auto 16px;
     padding: 10px 22px;
     background: #ff6b6b;
-    color: #ffffff;
+    color: #fff;
     text-decoration: none;
     border-radius: 30px;
     font-weight: 600;
     font-size: 14px;
-    transition: background 0.3s ease, transform 0.2s ease;
+    transition: background 0.3s ease, transform 0.2s ease box-shadow 0.2s ease;;
 }
 
 .gallery-item a:hover {
