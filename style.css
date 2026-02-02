@@ -1,5 +1,6 @@
-
-/* ================= RESET ================= */
+/* =====================
+   RESET & BASE
+===================== */
 * {
     margin: 0;
     padding: 0;
@@ -8,412 +9,239 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #f5f7fa;
+    background-color: #f6f7f9;
     color: #333;
+    line-height: 1.6;
 }
 
-/* ================= HEADER ================= */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =====================
+   HEADER & NAV
+===================== */
 header {
-    background-color: #2C3E50;
-    color: #fff;
+    background: #ffffff;
+    border-bottom: 1px solid #ddd;
     padding: 15px 40px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
 
 .logo h2 {
-    font-size: 22px;
+    color: #ff7a18;
 }
 
 nav a {
-    color: #ECF0F1;
     margin-left: 15px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
+    font-weight: 500;
+    color: #444;
 }
 
 nav a:hover {
-    color: #E67E22;
+    color: #ff7a18;
 }
 
-/* ================= HERO ================= */
+/* =====================
+   HERO SECTION
+===================== */
 .hero {
-    background-color: #ECF0F1;
     text-align: center;
-    padding: 60px 20px;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #ff7a18, #ff9f43);
+    color: white;
 }
 
 .hero h1 {
-    font-size: 36px;
+    font-size: 2.2rem;
     margin-bottom: 10px;
 }
 
 .hero p {
-    font-size: 18px;
     margin-bottom: 20px;
 }
 
 .hero button {
-    background-color: #E67E22;
-    color: #fff;
+    background: #ffffff;
+    color: #ff7a18;
     border: none;
     padding: 12px 25px;
-    font-size: 16px;
-    border-radius: 5px;
+    border-radius: 25px;
+    font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
 }
 
 .hero button:hover {
-    background-color: #D35400;
-    transform: scale(1.05);
+    background: #f1f1f1;
 }
 
-/* ================= PAGE LAYOUT ================= */
+/* =====================
+   LAYOUT (ADS + CONTENT)
+===================== */
 .layout {
-    display: grid;
-    grid-template-columns: 200px 1fr 200px;
+    display: flex;
+    max-width: 1400px;
+    margin: 40px auto;
     gap: 20px;
-    width: 100%;
-    min-height: 100vh;
-    padding: 20px;
+    padding: 0 20px;
 }
 
-/* ================= ADS ================= */
 .ad {
-    background-color: #f0f0f0;
-    border: 2px dashed #bbb;
+    width: 160px;
+    background: #eaeaea;
     text-align: center;
-    padding: 20px;
-    font-weight: bold;
+    padding: 20px 10px;
+    font-size: 0.9rem;
+    color: #777;
     position: sticky;
     top: 20px;
-    height: calc(100vh - 40px);
+    height: fit-content;
 }
 
-/* ================= GALLERY ================= */
+.content {
+    flex: 1;
+}
+
+/* =====================
+   GALLERY
+===================== */
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
 }
 
-/* ================= GALLERY ITEM ================= */
 .gallery-item {
-    background-color: #fff;
-    border-radius: 10px;
+    flex: 1 1 calc(16.66% - 20px);
+    max-width: calc(16.66% - 20px);
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 10px;
     overflow: hidden;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+
+/* عند المرور */
+.gallery-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.15);
+}
+
 
 .gallery-item img {
     width: 100%;
+    border-radius: 8px;
+    transition: transform 0.4s ease;
     display: block;
 }
 
-/* ================= DOWNLOAD BUTTON ================= */
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+
+/* =====================
+   DOWNLOAD BUTTON
+===================== */
 .gallery-item a {
-    display: block;
-    text-align: center;
-    background-color: #E67E22;
-    color: #fff;
-    padding: 10px;
-    font-weight: bold;
+    display: inline-block;
+    margin: 12px auto 16px;
+    padding: 10px 22px;
+    background: #ff6b6b;
+    color: #ffffff;
     text-decoration: none;
-    transition: background-color 0.3s, transform 0.2s;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .gallery-item a:hover {
-    background-color: #D35400;
+    background: #ff4d4d;
     transform: scale(1.05);
+    transform: translateY(-2px);
 }
 
-/* ================= CATEGORIES ================= */
+.gallery-item a:active {
+    transform: scale(0.96);
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 1200px) {
+    .gallery-item {
+        flex: 1 1 calc(25% - 20px);
+        max-width: calc(25% - 20px);
+    }
+}
+
+@media (max-width: 900px) {
+    .ad {
+        display: none;
+    }
+
+    .gallery-item {
+        flex: 1 1 calc(33.33% - 20px);
+        max-width: calc(33.33% - 20px);
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery-item {
+        flex: 1 1 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+    }
+}
+
+/* =====================
+   CATEGORIES
+===================== */
 .categories {
-    background-color: #fff;
-    padding: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
+    max-width: 1200px;
+    margin: 40px auto;
+    text-align: center;
 }
 
 .categories a {
-    background-color: #3498DB;
-    color: #fff;
+    display: inline-block;
+    margin: 8px;
     padding: 10px 18px;
+    background: #ffffff;
     border-radius: 20px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s, transform 0.2s;
+    border: 1px solid #ddd;
+    font-size: 0.9rem;
 }
 
 .categories a:hover {
-    background-color: #2980B9;
-    transform: scale(1.05);
+    background: #ff7a18;
+    color: #ffffff;
+    border-color: #ff7a18;
 }
 
-/* ================= FOOTER ================= */
+/* =====================
+   FOOTER
+===================== */
 footer {
-    background-color: #2C3E50;
-    color: #ECF0F1;
-    padding: 20px;
+    background: #222;
+    color: #ccc;
     text-align: center;
-    font-size: 14px;
+    padding: 20px;
+    font-size: 0.85rem;
 }
 
 footer a {
-    color: #ECF0F1;
+    color: #ff9f43;
     margin: 0 5px;
-    text-decoration: none;
 }
 
 footer a:hover {
     text-decoration: underline;
 }
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 1200px) {
-    .layout {
-        grid-template-columns: 1fr;
-    }
-
-    .ad {
-        display: none;
-    }
-
-    .gallery {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    nav {
-        display: none;
-    }
-
-    .gallery {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .hero h1 {
-        font-size: 28px;
-    }
-}
-
-
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-body {
-    background-color: #ECF0F1;
-    color: #333;
-}
-
-header {
-    background-color: #2C3E50;
-    padding: 20px 100px 20px 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-header .logo h2 {
-    color: #ECF0F1;
-}
-
-header nav a {
-    margin-left: 15px;
-    text-decoration: none;
-    color: #ECF0F1;
-    font-weight: bold;
-    margin-top: 5px;
-    padding: 5px 8px;
-    border-radius: 5px;
-}
-
-header nav a:hover {
-    color: #E67E22;
-    background-color: rgb(236, 240, 241, 0.1);
-}
-
-
-
-.hero {
-    text-align: center;
-    padding: 50px 20px;
-    background-color: #BDC3C7;
-    border-radius: 10px;
-}
-
-.hero h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
-    color: #2C3E50;
-}
-
-.hero p {
-    margin-bottom: 20px;
-    font-size: 1.1em;
-}
-
- .hero button {
-    padding: 10px 20px;
-    font-size: 1em;
-    background-color: #E67E22;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    color: #fff;
-    font-weight: bold;
- } 
-
- .hero button:hover {
-    background-color: #B15606;
- }
-
-
-
- .layout {
-    display: grid;
-    grid-column: 200px 1fr 200px;
-    min-height: 100vh;
-    width: 100%;
- }
-
- .gallery {
-    display: grid;
-    //grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20pxs;
-    padding: 40px 20px;
- }
-
- .gallery-item {
-    //background-color: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
-    position: relative;
- }
-
- .gallery-item:hover {
-    transform: translateY(-5px); 
- }
-
-
- .gallery-item img {
-    width: 100%;
-    display: block;
-    margin-left: 5px;
-    
- }
-
- .gallery-item a {
-    display: block;
-    padding: 10px;
-    background-color: #E67E22;
-    color: #fff;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 0 0 10px 10px;
-    transition: background-color 0.3 transform 0.2s;
-    margin-left: 5px;
-    
- }
-
- .gallery-item a:hover {
-    background-color: #D35400;
-    transform: scale(1.05);
- }
-
- 
-
-
- .ad {
-    background-color: #D5D8DC;
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    position: sticky;
-    top: 20px;
-    height: calc(100vh - 40px);
-    font-weight: bold;
-    color: #2C3E50;
-    
- }
-
- .categories {
-    padding: 30px 20px;
-    text-align: center;
-    background: #BDC3C7;
- }
-
- .categories a {
-    display: inline-block;
-    margin: 10px;
-    padding: 10px 20px;
-    background-color: #3498DB;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s;
- }
-
- .categories a:hover {
-    background-color: #2980B9;
- }
-
- footer {
-    background-color: #2C3E50;
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-    color: #ECF0F1;
- }
- footer a {
-    color: #ECF0F1;
-    text-decoration: none;
-    margin: 0 5px;
- }
-
- .add {
-    background-color: red;
- }
-
- .content {
-    background-color: blue;
- }
-
- @media (max-width: 900px) {
-    .hero h1 {font-size: 1.5em;}
-    .hero p {font-size: 1em;}
-    header nav a {margin-left: 10px;}
-
-    .layout {
-        grid-template-columns: 1fr;
-    }
-
-    .ad {
-        display: none;
-    }
-
-    .gallery{
-        grid-template-columns: repeat(2, 1fr);
-    }
-
- }
- */
-
- 
-
